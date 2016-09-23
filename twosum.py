@@ -1,13 +1,12 @@
-class Solution(object):
-    def twoSum(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
-        for i in xrange(len(nums)):
-            dict = target - nums[i]
-            if dict in nums and i != nums.index(dict,i):
-                return [i,nums.index(dict,i)]
-            else:
-                continue
+#coding=utf-8
+
+nums = [0,4,3,0]
+target = 0
+for i in xrange(len(nums)):
+    dict = target - nums[i]
+    for j in xrange(len(nums)):
+        print 'i: ' + `i`
+        if nums[j] == dict and i != j
+        print [i,nums.index(dict,i)]
+    else:
+        continue
