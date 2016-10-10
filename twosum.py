@@ -1,12 +1,14 @@
 #coding=utf-8
+def twosum(nums,target):
+	for i in xrange(len(nums)):
+            for j in xrange(i+1,len(nums)):
+            	print "i: ", i , "j: " , j
+            	x = nums[i]
+            	y = nums[j]
+            	
+                if x + y == target:
+                    return [i, j]
+                
 
-nums = [0,4,3,0]
-target = 0
-for i in xrange(len(nums)):
-    dict = target - nums[i]
-    for j in xrange(len(nums)):
-        print 'i: ' + `i`
-        if nums[j] == dict and i != j
-        print [i,nums.index(dict,i)]
-    else:
-        continue
+if __name__ == '__main__':
+	print twosum([0,4,3,0],0)
