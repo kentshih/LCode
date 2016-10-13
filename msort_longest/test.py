@@ -15,6 +15,7 @@ def sort(a): ## buggy version copied from slides
         return [sort(left)] + [pivot] + [sort(right)]
 
 from longest import longest
+# from solution_longest import longest
 print longest([[], 1, []])
 print longest([[[], 1, []], 2, [[], 3, []]])
 print longest([[[[], 1, []], 2, [[], 3, []]], 4, [[[], 5, []], 6, [[], 7, [[], 9, []]]]])

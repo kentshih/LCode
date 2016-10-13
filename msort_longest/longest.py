@@ -1,12 +1,11 @@
 #coding=utf-8
 # Minghung Shih 932906326
 
-def longest(alist):
-	leftlong1 = leftlong2 = rightlong1 = rightlong2 = -1
-	middlel = middler = 0
+def _longest(alist):
 	# print "alist: ", alist
 	if alist == []:
-		return -1
+		return 0,0
+	"""
 	if alist[0] != []:
 		leftlong1 = longest(alist[0][0])
 		leftlong2 = longest(alist[0][2])
@@ -26,18 +25,12 @@ def longest(alist):
 	sumlong1 = max(leftlong1,leftlong2) + middlel + middler + 2 + max(rightlong1,rightlong2)
 	# print "sum1: ", sumlong1 , "sum2: ", sumlong2, "sum3: ", sumlong3
 	return max(sumlong1,sumlong2,sumlong3)
+	"""
 
-# print longest([[], 1, []])
-# print longest([[[], 1, []], 2, [[], 3, []]])
-# print longest([[[[], 1, []], 2, [[], 3, []]], 4, [[[], 5, []], 6, [[], 7, [[], 9, []]]]])
-# print longest([[[[], 1, []], 2, [[], 3, []]], 4, [[[[[],10,[[],11,[]]],8,[]], 5, []], 6, [[], 7, [[], 9, [[[],13,[]],12,[]]]]]])
-'''
->>> longest([[], 1, []])
-   0
+	sleft, mleft = _longest(alist[0])
+	sright, mright = _longest(alist[2])
 
-   >>> longest([[[], 1, []], 2, [[], 3, []]])
-   2
+	return max(sleft, sright)+1, max(mleft , mright, sleft+sright)
 
-   >>> longest([[[[], 1, []], 2, [[], 3, []]], 4, [[[], 5, []], 6, [[], 7, [[], 9, []]]]])
-   5
-'''
+def longest(alist):
+	return _longest(alist)[1]
