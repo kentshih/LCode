@@ -1,5 +1,6 @@
 CS 519-005, Algorithms (MS/MEng-level), Fall 2016
 HW4 - Heaps
+Ming-hung Shih 932-905-326 ONID:shihm
 
 Due electronically on Canvas on Sunday Oct 16, 11:59pm.
 No late submission will be accepted.
@@ -21,6 +22,11 @@ Textbooks for References:
        		       What about sorted or reversely-sorted numbers?
 
    Write your answers to (a) and (b) in report.txt.
+   (a) (1) T(n) = 1/2 * T(n - 1) = O(nlogn)
+       (2) T(n) = n * 1/2 = O(n)
+   (b) random numbers is average case, (1) = O(nlogn) < (2) = O(n)
+       sorted numbers = best case, (1) = (2) approximately
+       reversely-sorted numbers = worse case, (1) = (2) approximately
 
 1. (taken from my first paper: see "Algorithm 1" in Huang and Chiang (2005).)
 
@@ -41,6 +47,9 @@ Textbooks for References:
        Hint: you can use Python's heapq module for priority queue.
 
    Q: What are the time complexities of these algorithms? 
+   A: (a) O(n^2)
+      (b) O(nlogn)
+      (c) O(n)
 
    >>> a, b = [4, 1, 5, 3], [2, 6, 3, 4]
    >>> nbesta(a, b)   # algorithm (a), slowest
@@ -58,6 +67,9 @@ Textbooks for References:
    [0,1,2,3,4,5,6,7]
 
    Q: What is the complexity? Write down the detailed analysis in report.txt.
+   A: to k-way: O(nlogn)
+      devide and merge: O(klogk)
+      total: O(nlogn+klogk)
 
    Filename: kmergesort.py
 
@@ -76,19 +88,28 @@ Textbooks for References:
    b) the output list should be sorted
 
    Q: What is your complexity? Write down the detailed analysis in report.txt.
+
+   A: Time complexity: O(n) to visit every element, O(k) to pop heap, O(k) to sort list, O(n+k) totally
+      space: O(k) to store heap
    
    Filename: datastream.py
 
 Debriefing (required!): --------------------------
 
 1. Approximately how many hours did you spend on this assignment?
+20hr
 2. Would you rate it as easy, moderate, or difficult?
+difficult
 3. Did you work on it mostly alone, or mostly with other people?
    Note you are encouraged to discuss with your classmates, 
    but each students should submit his/her own code.
+mostly alone
 4. How deeply do you feel you understand the material it covers (0%–100%)? 
+60%
 5. Which part(s) of the course you like the most so far?
+homework
 6. Which part(s) of the course you dislike the most so far?
+quiz
 
 This section is intended to help us calibrate the homework assignments. 
 Your answers to this section will *not* affect your grade; however, skipping it
