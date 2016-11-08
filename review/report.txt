@@ -41,6 +41,7 @@ def nbest(ABs):    # no need to pass in k or n
         _______________________
         _______________________
 
+  Time complexity: O(klogk+nlog(n+k))
 
 (b) Describe two improvements to make it faster (for the cases where k>>n).
     Analyze their time complexities.
@@ -61,6 +62,16 @@ def nbest(ABs):    # no need to pass in k or n
     >>> list(nbest([([1,6,8,13],[5,8,11,12]),([1,2,3,5],[5,9,11,13]),([3,5,7,10],[4,6,7,11]),([1,4,7,8],[4,9,11,15]),([4,8,10,13],[4,6,10,11]),([4,8,12,15],[5,10,11,13]),([2,3,4,8],[4,7,11,15]),([4,5,10,15],[5,6,7,8])])
 
     [(1, 4), (1, 5), (1, 5), (2, 4)]
+
+    1. Initial heap with heapify
+    Time complexity: O(k+nlog(n+k))
+    Space complexity: O(k)
+    2. plused quick select to find n pairs
+    Time complexity: O(k+nlogn)
+    Space complexity: O(n)
+    3. use max-heap to find n pairs (extra)
+    Time complexity: O(klogn+nlogn)
+    Space complexity: O(k)
 
 
 2. coins.py
@@ -86,6 +97,10 @@ def nbest(ABs):    # no need to pass in k or n
    None
 
    Note: if impossible, return None.
+   Time complexity: O(nx)
+   Space complexity: O(x)
+
+
 
 
 In report.txt, don't forget to analyze time/space complexities for 1(a), 1(b), and 2.
@@ -96,13 +111,13 @@ Debriefing (required!): --------------------------
 0. What's your name?
 Ming-hung Shih
 1. Approximately how many hours did you spend on this assignment?
-
+12 hours
 2. Would you rate it as easy, moderate, or difficult?
 difficult
 3. Did you work on it mostly alone, or mostly with other people?
 mostly alone
 4. How deeply do you feel you understand the material it covers (0%–100%)? 
-
+70%
 
 [NEW QUESTIONS]
 5. Did you like the Midterm? If not, which part(s) do you dislike the most?
