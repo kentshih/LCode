@@ -1,0 +1,59 @@
+Ming-hung Shih 932-906-326
+Midterm correction
+
+1.
+(a) O(n^2); bubble sort, insertion sort, selection sort, quicksort worst case, quickselect worst case, etc.
+(b) O(nlogn) when k >= 2; k-way mergesort
+(c) O(n); heapify
+(d) O(nlogn); build a heap by n pushes; or n pops from heap.
+
+2.
+(a) the path from root to leaf is non-deterministic
+(b) still, O(logn) swap time is needed after position is found
+
+5.
+(a) a^n
+(b) time: O(n); space: O(n)
+def fib(n, cache = {}):
+    if n in cache:
+        return cache[n]
+    cache[n] = 1 if n < 2 else fib(n-1, cache) + fib(n-2, cache)
+    return cache[n]
+(c) time: O(n); space: O(1)
+def fib(n):
+    x,y = 0,1
+    for i in xrange(1, n+1):
+        x,y = y, x+y
+    return y
+(d) both (b) and (c).
+
+6.
+(a) [1,3,4]; greedy 6=4+1+1(3 coins) optimal 6=3+3(2 coins)
+(b) dp(x): smallest number of coins needed to make up x cents.
+
+(c)
+Base: opt(0) = 0
+Recurrence: 
+opt(x) = min(opt(x-v_i) + 1 if x >= v_i, for i in 0...n-1)
+Goal: opt(X)
+
+(d) 
+space: O(X)
+time: O(Xn)
+
+(e)
+opt(x, i): smallest number of types needed to make up x cents using a subset of only the first i types of coins.
+
+(f) 
+Base: opt(0, i) = 0 for any i
+opt(x, 0) = +INF (x>0)
+
+Recurrence:  
+opt(x, i) = min(opt(x - j * v_i, i-1) + 1 if x-j*v_i>=0), 
+            for i in 0...n-1 and for j in 0..x//v_i
+
+Goal: opt(X, n)
+
+(g) space: O(Xn)
+    time:  crude analysis: the worst case is O(X^2 n)
+    	   detailed analysis: O(X^2 \sum_{i=0..n-1} 1/v_i)

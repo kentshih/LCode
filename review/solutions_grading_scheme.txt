@@ -1,0 +1,156 @@
+CS 519, Algorithms, Fall 2016, Midterm
+Solutions and Grading Schemes
+http://classes.engr.oregonstate.edu/eecs/fall2016/cs519-005/
+
+1.
+Solution:
+(instances may vary)
+(a) O(n^2); bubble sort, insertion sort, selection sort, quicksort worst case, quickselect worst case, etc.
+(b) O(nlogn) when k >= 2; k-way mergesort
+(c) O(n); heapify
+(d) O(nlogn); build a heap by n pushes; or n pops from heap.
+Note: "heapsort" receives full marks, but technically, heapsort
+      is heapify + n pops.
+
+Grading Scheme:
+0.5 for each result/instance. Binary.
+
+2.
+Solution:
+(a) the path from root to leaf is non-deterministic
+(b) still, O(logn) swap time is needed after position is found (see quiz1)
+Grading Scheme:
+1 for each reason.
+0.5 if the answer got the idea but incorrect.
+
+3.
+Solution:
+(a) 1<=>2;1<=>4;2<=>4
+(b) 5=>2;5<=>3;5<=>4
+
+Grading Scheme:
+(a) 0.5 for swapping in left-subtree and 1 for two swaps from root.
+(b) 1 for putting 5 to the root and 0.5 for 2 swapping.
+    1.0 if solution is correct but swap the empty element from top instead.
+
+4.
+Solution:
+(a)
+from heapq import *
+def nbest(ABs, k, n):
+    def trypush(i, p, q):
+        A, B = ABs[i]
+        if p<n and q<n and (i,p,q) not in used:
+            heappush(h, (A[p]+B[q], i, p, q, (A[p], B[q])))
+            used.add((i, p, q))
+    h, used = [], set()
+    for i in xrange(k):
+        trypush(i, 0, 0)
+    for _ in xrange(n):
+        _, i, p, q, pair = heappop(h)
+        yield pair
+        trypush(i, p+1, q)
+        trypush(i, p, q+1)
+
+(b) O(klogk + nlog(n+k))
+    Heap length: k (start) => k+n (end)
+
+(c) Heapify instead of k pushes in initialization.
+    O(k + nlog(n+k))
+
+(d) Observation: if for some i the (i, 0, 0) pair does not make the top n,
+    		 then none of its decendants (i, p, q) will.
+    Quickselect top n among the k (i, 0,0) pairs before heapify.
+    Heap length: n (start) => 2n (end)
+    O(k + n + nlogn) = O(k + nlogn)
+
+Grading Scheme:
+(a) 3 in total.
+0.5 each blank.
+    blank (3). first half: [] 0.2; second half: {}/[] 0.5/0.4; set(): extra +0.2 reward
+    blank (4). no deduction on heapq.heapop...
+(b) 1 in total.
+    0.9 if answered O(klogk+nlog?).
+(c) 1 in total.
+    0.5 on heapify;
+    0.5 on complexity; full mark if O(k + nlogk) [method must be correct]
+(d) 2 in total.
+    1 on quickselect; (0.5 if quicksort)
+    1 on complexity.
+    full mark if using the O(klogn+nlogn) approach;
+    full mark if ignore n in complexity.
+
+5.
+Solution:
+(a) a^n
+(b) time: O(n); space: O(n)
+def fib(n, cache = {}):
+    if n in cache:
+        return cache[n]
+    cache[n] = 1 if n < 2 else fib(n-1, cache) + fib(n-2, cache)
+    return cache[n]
+(c) time: O(n); space: O(1)
+def fib(n):
+    x,y = 0,1
+    for i in xrange(1, n+1):
+        x,y = y, x+y
+    return y
+(d) both (b) and (c).
+
+Grading Scheme:
+(a) 0.5, binary.
+(b) 0.5 each blank.
+    initialization of cache: partial credits on dislocation of fib;
+    0.4 if {} missing
+(c) 0.5 per time/space pair.
+(d) 0.5.   partial answer: 0.25 (either b of c).
+
+6.
+Solution:
+(a) [1,3,4]; greedy 6=4+1+1(3 coins) optimal 6=3+3(2 coins)
+(b) dp(x): smallest number of coins needed to make up x cents.
+
+(c)
+Base: opt(0) = 0
+Recurrence: 
+opt(x) = min(opt(x-v_i) + 1 if x >= v_i, for i in 0...n-1)
+Goal: opt(X)
+
+(d) 
+space: O(X)
+time: O(Xn)
+
+Note: similar to unbounded knapsack
+
+(e)
+opt(x, i): smallest number of types needed to make up x cents using a subset of only the first i types of coins.
+
+(f) 
+Base: opt(0, i) = 0 for any i
+opt(x, 0) = +INF (x>0)
+
+Recurrence:  
+opt(x, i) = min(opt(x - j * v_i, i-1) + 1 if x-j*v_i>=0), 
+            for i in 0...n-1 and for j in 0..x//v_i
+
+Goal: opt(X, n)
+
+(g) space: O(Xn)
+    time:  crude analysis: the worst case is O(X^2 n)
+    	   detailed analysis: O(X^2 \sum_{i=0..n-1} 1/v_i)
+
+Note: similar to bounded knapscak, except time complexity.
+
+Grading Scheme:
+(a) 1, binary since it will always be totally correct or incorrect.
+(b)(c) 3 in total.
+1 for define; (smallest, 0.5)
+0.5 for base case;
+1.5 for transition (min, 0.5; formula, 1)
+(d) 0.5 each.
+(e)(f) 3 in total.
+1 for define; (smallest, 0.5)
+0.5 for base case;
+1.5 for transition (min, 0.5; formula, 1)
+Requires two-dimension definition to get points.
+(g) 0.5 each. crude analysis is enough.

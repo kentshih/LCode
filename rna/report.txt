@@ -1,0 +1,63 @@
+CS 519-005, Algorithms (MS/MEng-level), Fall 2016
+Challenge Problem - RNA Structure Prediction (6%)
+
+Due electronically on Canvas on Tuesday Nov 29, 11:59pm.
+No late submission will be accepted.
+
+Include in your submission: report.txt, rna.py.
+Grading: 
+* report.txt -- 1%
+* 1-best structure -- 2%       
+* number of structures -- 1%  -- cf. hw5 number of binary trees
+* k-best structures -- 2%     -- cf. hw4/midterm/hw7 nbest problem
+
+Textbooks for References:
+[1] KT Ch. 6.5 (DP over intervals -- RNA structure)    
+[2] KT slides: DP I (RNA section)
+    http://www.cs.princeton.edu/~wayne/kleinberg-tardos/
+
+***Please answer time/space complexities for each problem in report.txt.
+
+1. I use dictionary to store each result.
+if the first pair (i,j) matched, reducing it to subproblem (i+1,j-1).
+Or it could be separated to two substring with pointer k to solve two substring.
+
+Time complexity: O(n^2)
+Space complexity: O(n^2)
+
+2. Total number of all possible structures (related to Catalan numbers)
+I examined the first character to pair remained string, if not, reduce to the strng(1:j)
+then searched the string to compared rna[0] and rna[k], where k from 1 to j
+then solve the subproblem total(i+1,k-1) and total(k+1,j)
+
+Time complexity: O(n^2)
+Space complexity: O(n^2)
+
+3. k-best structures: return a list containing the 1-best, 2nd-best, 
+   ..., the kth-best structures.
+
+Time complexity: O(n^3)
+Space complexity: O(n^3)
+
+I use heap to store the result from question 1, than pop it.
+   
+Debriefing (required!): --------------------------
+
+0. What's your name?
+Ming-hung Shih
+1. Approximately how many hours did you spend on this assignment?
+30 hours
+2. Would you rate it as easy, moderate, or difficult?
+difficult
+3. Did you work on it mostly alone, or mostly with other people?
+mostly with other people
+4. How deeply do you feel you understand the material it covers (0%–100%)? 
+40%
+5. Which part(s) of the course you like the most so far?
+class
+6. Which part(s) of the course you dislike the most so far?
+quiz
+
+This section is intended to help us calibrate the homework assignments. 
+Your answers to this section will *not* affect your grade; however, skipping it
+will certainly do.

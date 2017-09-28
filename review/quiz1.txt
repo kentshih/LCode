@@ -1,0 +1,10 @@
+Ming-hung Shih 932-906-326
+Quiz 1 correction
+
+2.                        |  worst-case   |  best-case
+input query x             |  1            |  6
+list the numbers visited  |  6->2->1      |  6
+time complexity           |  O(n)         |  O(1)
+
+3. False, binary search needs to work on sorted list, and link-list uses O(n) to find and swap elements.
+

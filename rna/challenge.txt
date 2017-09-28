@@ -1,0 +1,84 @@
+CS 519-005, Algorithms (MS/MEng-level), Fall 2016
+Challenge Problem - RNA Structure Prediction (6%)
+
+Due electronically on Canvas on Tuesday Nov 29, 11:59pm.
+No late submission will be accepted.
+
+Include in your submission: report.txt, rna.py.
+Grading: 
+* report.txt -- 1%
+* 1-best structure -- 2%       
+* number of structures -- 1%  -- cf. hw5 number of binary trees
+* k-best structures -- 2%     -- cf. hw4/midterm/hw7 nbest problem
+
+Textbooks for References:
+[1] KT Ch. 6.5 (DP over intervals -- RNA structure)    
+[2] KT slides: DP I (RNA section)
+    http://www.cs.princeton.edu/~wayne/kleinberg-tardos/
+
+***Please answer time/space complexities for each problem in report.txt.
+
+1. Given an RNA sequence, such as ACAGU, we can predict its secondary structure 
+   by tagging each nucleotide as (, ., or ). Each matching pair of () must be 
+   AU, GC, or GU (or their mirror symmetries: UA, GC, UG). 
+   We also assume pairs can _not_ cross each other. 
+   The following are valid structures for ACAGU:
+
+   ACAGU
+   .....
+   ...()
+   ..(.)
+   .(.).
+   (...)
+   ((.))    
+
+   We want to find the structure with the maximum number of matching pairs. 
+   In the above example, the last structure is optimal (2 pairs). 
+
+   >>> best("ACAGU")
+   (2, '((.))')
+
+   Tie-breaking: lexicographical order, assuming ( < . < ).
+   E.g., '(.).' is better than '.(.)' which is better than '..()'.
+
+   Note: the version in KT is not the easiest or cleanest.
+   	 see hw5 number of binary trees for a better way.
+
+2. Total number of all possible structures (related to Catalan numbers)
+
+   >>> total("ACAGU")
+   6
+
+3. k-best structures: return a list containing the 1-best, 2nd-best, 
+   ..., the kth-best structures.
+
+   >>> kbest("ACAGU", 3)
+   [(2, '((.))'), (1, '(...)'), (1, '.(.).')]
+   
+   The list must be sorted. Use the lexicographical order above for tie-breaking.
+   In case the input k is bigger than the number of possible structures, output all.
+
+   Sanity check: kbest(s, 1)[0] == best(s) for each RNA sequence s.
+
+All three functions should be in one file: rna.py.
+   
+Debriefing (required!): --------------------------
+
+0. What's your name?
+Ming-hung Shih
+1. Approximately how many hours did you spend on this assignment?
+
+2. Would you rate it as easy, moderate, or difficult?
+difficult
+3. Did you work on it mostly alone, or mostly with other people?
+
+4. How deeply do you feel you understand the material it covers (0%–100%)? 
+
+5. Which part(s) of the course you like the most so far?
+
+6. Which part(s) of the course you dislike the most so far?
+
+
+This section is intended to help us calibrate the homework assignments. 
+Your answers to this section will *not* affect your grade; however, skipping it
+will certainly do.
