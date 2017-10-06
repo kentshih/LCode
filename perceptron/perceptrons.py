@@ -22,8 +22,7 @@ def pla(dataset):
     return w
 
 def main():
-    f = open('income.test.txt','r')
-    print(f.read())
+    
     dataset = np.array([
     ((1, -0.4, 0.3), -1),
     ((1, -0.3, -0.1), -1),
@@ -49,5 +48,6 @@ def main():
     plt.show()
 
 if __name__ == '__main__':
-    main()
+    f = open('income.test.txt','r')
+    print(f.read())
 
