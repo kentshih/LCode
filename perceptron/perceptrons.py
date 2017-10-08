@@ -48,6 +48,28 @@ def main():
     plt.show()
 
 if __name__ == '__main__':
+    dictdata = {}
     f = open('income.test.txt','r')
-    print(f.read())
+    z = f.readline()
+    x = []
+    w = np.zeros(9)
+    count = 1
+    for line in f:
+        frame = line.split(",")
+        for element in frame:
+            if element not in dictdata:
+                dictdata[element] = count
+                count += 1
+            x.append(dictdata[element])
+        print x[:9]
+        x = []
+        
+    # x = np.array(f.readline())
+    # y = np.array(f.readline())
+    # x = f.readline()
+    # print dictdata
+    # print x
+    # print x.T.dot(y)
+    # for line in f:
+    #  print line
 
