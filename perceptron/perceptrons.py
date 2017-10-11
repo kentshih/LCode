@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import numpy as np
 
 def check_error(w, dataset):
@@ -15,61 +15,101 @@ def check_error(w, dataset):
     return result
 
 def pla(dataset):
-    w = np.zeros(3)
+    w = np.zeros(9)
     while check_error(w, dataset) is not None:
         x, s = check_error(w, dataset)
         w += s * x
     return w
 
-def main():
-    
-    dataset = np.array([
-    ((1, -0.4, 0.3), -1),
-    ((1, -0.3, -0.1), -1),
-    ((1, -0.2, 0.4), -1),
-    ((1, -0.1, 0.1), -1),
-    ((1, 0.9, -0.5), 1),
-    ((1, 0.7, -0.9), 1),
-    ((1, 0.8, 0.2), 1),
-    ((1, 0.4, -0.6), 1)])
-    w = pla(dataset)
-
-    ps = [v[0] for v in dataset]
-    fig = plt.figure()
-    ax1 = fig.add_subplot(111)
-    #dataset前半後半已經分割好 直接畫就是
-
-    ax1.scatter([v[1] for v in ps[:4]], [v[2] for v in ps[:4]], s=10, c='b', marker="o", label='O')
-    ax1.scatter([v[1] for v in ps[4:]], [v[2] for v in ps[4:]], s=10, c='r', marker="x", label='X')
-    l = np.linspace(-2,2)
-    a,b = -w[1]/w[2], -w[0]/w[2]
-    ax1.plot(l, a*l + b, 'b-')
-    plt.legend(loc='upper left');
-    plt.show()
-
-if __name__ == '__main__':
-    dictdata = {}
-    f = open('income.test.txt','r')
-    z = f.readline()
-    x = []
-    w = np.zeros(9)
+def pla1(file,w,dictdata):
+    error = 0
+    f = open(file,'r')
+    x = np.zeros(10)
     count = 1
+    lines = 1
     for line in f:
         frame = line.split(",")
+        elements = 0
+        x = np.zeros(10)
         for element in frame:
             if element not in dictdata:
                 dictdata[element] = count
                 count += 1
-            x.append(dictdata[element])
-        print x[:9]
-        x = []
+            x[elements] = dictdata[element]
+            if element == " <=50K\n":
+                x[9] = 1
+            if element == " >50K\n":
+                x[9] = -1
+            elements += 1
+        # print "x: ",x
+        # print "w: ",w
+        lines+= 1
+        if int(np.sign(w.T.dot(x[:9]))) != x[9]:
+            error += 1
+        else:
+            continue
         
-    # x = np.array(f.readline())
-    # y = np.array(f.readline())
-    # x = f.readline()
-    # print dictdata
-    # print x
-    # print x.T.dot(y)
-    # for line in f:
-    #  print line
+        w += x[9] * x[:9]
+    print  "error=%s/%s" % (error, lines), "rate: ", float(error) / lines
+    print "w: ",w
+    return w
+
+def mira(file,w,dictdata):
+    error = 0
+    f = open(file,'r')
+    x = np.zeros(10)
+    count = 1
+    lines = 1
+    dist = 0.0
+    for line in f:
+        frame = line.split(",")
+        elements = 0
+        x = np.zeros(10)
+        for element in xrange(1,len(frame):
+            if element not in dictdata:
+                dictdata[element] = count
+                count += 1
+            x[elements] = dictdata[element]
+            if element == " <=50K\n":
+                x[9] = 1
+            if element == " >50K\n":
+                x[9] = -1
+            elements += 1
+        # print "x: ",x
+        # print "w: ",w
+        lines+= 1
+        if int(np.sign(w.T.dot(x[:9]))) != x[9]:
+            error += 1
+        else:
+            continue
+        dist = np.linalg.norm(x)
+        w = w + np.subtract(x[:9], w.T.dot(x[:9])) * (x[9] / dist*dist)
+    print  "error=%s/%s" % (error, lines), "rate: ", float(error) / lines
+    print "w: ",w
+    return w
+
+def main():
+    file = 'income.train.txt'
+    w = np.zeros(9)
+    dictdata = {}
+    for x in xrange(0,5):
+        w = pla1(file,w,dictdata)
+    file = 'income.dev.txt'
+    w = pla1(file,w,dictdata)
+
+    file = 'income.train.txt'
+    w = np.zeros(9)
+    dictdata = {}
+    for x in xrange(0,5):
+        w = mira(file,w,dictdata)
+    file = 'income.dev.txt'
+    w = mira(file,w,dictdata)
+
+    
+
+if __name__ == '__main__':
+    main()
+    
+        
+    
 
