@@ -23,5 +23,5 @@ class Solution(object):
                     longestnum += 1
                     keepgo = False
             
-        return longestnum
+        return longestnu
             
