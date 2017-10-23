@@ -144,7 +144,7 @@ def pla1(file,w,dictdata,avgw,iteration,mira,p):
     plt.xlim(0, 5000)
     plt.ylim(0.1, 0.4)
     plt.title('AMIRA 0.1')
-    plt.show()
+    # plt.show()
 
     return w,avgw
 
@@ -252,11 +252,83 @@ def main():
     avgw = np.zeros(260)
     dictdata = {}
     iteration = 5
-    mira = 2
+    mira = 0
     p = 0.1
     w,avgw = pla1(file,w,dictdata,avgw,iteration,mira,p)
 
     # print w
+    # print dictdata
+
+    # temp1 = np.argmax(avgw)
+    # temp2 = np.max(avgw)
+    # for c in xrange(0,5):
+    #     temp1 = np.argmax(avgw)
+    #     temp2 = np.max(avgw)
+    #     for a,b in dictdata.iteritems():
+    #         if b == temp1:
+    #             print a, temp2
+    #             avgw[temp1] = 0
+    # for c in xrange(0,5):
+    #     temp1 = np.argmin(avgw)
+    #     temp2 = np.min(avgw)
+    #     for a,b in dictdata.iteritems():
+    #         if b == temp1:
+    #             print a, temp2
+    #             avgw[temp1] = 0
+    # rankd = 
+    for a in dictdata:
+        if 'Hr' in a:
+            b = dictdata[a]
+            print a, avgw[b]
+        # if 'Black' in a:
+        #     b = dictdata[a]
+        #     print a, avgw[b]
+        # if 'Asian-Pac-Islander' in a:
+        #     b = dictdata[a]
+        #     print a, avgw[b]
+        # if 'Amer-Indian-Eskimo' in a:
+        #     b = dictdata[a]
+        #     print a, avgw[b]
+        # if 'Other' in a:
+        #     b = dictdata[a]
+        #     print a, avgw[b]
+        # if 'Sales' in a:
+        #     b = dictdata[a]
+        #     print a, avgw[b]
+        # if 'Transport-moving' in a:
+        #     b = dictdata[a]
+        #     print a, avgw[b]
+        # if 'Farming-fishing' in a:
+        #     b = dictdata[a]
+        #     print a, avgw[b] 
+        # if 'Machine-op-inspct' in a:
+        #     b = dictdata[a]
+        #     print a, avgw[b]
+        # if 'Tech-support' in a:
+        #     b = dictdata[a]
+        #     print a, avgw[b]
+        # if 'Craft-repair' in a:
+        #     b = dictdata[a]
+        #     print a, avgw[b]
+        # if 'Protective-serv' in a:
+        #     b = dictdata[a]
+        #     print a, avgw[b]
+        # if 'Armed-Forces' in a:
+        #     b = dictdata[a]
+        #     print a, avgw[b]
+        # if 'Priv-house-serv' in a:
+        #     b = dictdata[a]
+        #     print a, avgw[b]
+        # if 'Masters' in a:
+        #     b = dictdata[a]
+        #     print a, avgw[b]
+        # if 'Doctorate' in a:
+        #     b = dictdata[a]
+        #     print a, avgw[b]
+        # if '12th' in a:
+        #     b = dictdata[a]
+        #     print a, avgw[b]   
+    # rankd.
 
     
 
