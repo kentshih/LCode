@@ -14,7 +14,7 @@ dim = 2
 N = 500
 
 def gen(C=1e10):
-    a, b, c = (random()-0.5)*10, (random()-0.5)*10, (random()+1)*5  # 0 for no bias
+    a, b, c = (random()-0.5) *10, (random()-0.5) *10, (random()+1) *5  # 0 for no bias
     norm = math.sqrt(a*a+b*b)
 
     w = np.array([a/norm, b/norm, c/norm])
