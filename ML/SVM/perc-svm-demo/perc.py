@@ -39,7 +39,7 @@ def perc(data, MIRA=False, aggressive=False, margin=0.5):
             break
         else:
             #pass
-            print i, error, weight
+            print i, error, weight, 
         #avgw += weight
 
     print

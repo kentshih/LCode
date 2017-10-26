@@ -57,7 +57,7 @@ def gen(C=1e10):
     e1, percw, avgw, errp, marginp = perc(datas, MIRA=False, aggressive=False, margin=0)
     e2, miraw, _, erra, margina = perc(datas, MIRA=True, aggressive=False, margin=0.2)
     e3, miraw2, _, erra2, margina2 = perc(datas, MIRA=True, aggressive=True, margin=0.5)
-    print e1, e2, e3
+    print "hi",e1, e2, e3
     print percw, avgw
     print np.linalg.norm(percw), np.linalg.norm(avgw)
     print marginp, margina
@@ -97,13 +97,22 @@ def gen(C=1e10):
 
 if __name__ == "__main__":
 
-    C = float(sys.argv[1]) if len(sys.argv) > 1 else 0.01 
+    # C = float(sys.argv[1]) if len(sys.argv) > 1 else 0.01 
+    # pyplot.ion()
+    # while True:
+    #     gen(C=C)
+    #     pyplot.show()
+    #     try:
+    #         a = raw_input()
+    #     except:
+    #         break
+    #     pyplot.clf()
+
+    C = float(sys.argv[1]) if len(sys.argv) > 1 else 0.01
     pyplot.ion()
-    while True:
-        gen(C=C)
-        pyplot.show()
-        try:
-            a = raw_input()
-        except:
-            break
-        pyplot.clf()
+    gen(C=C)
+    pyplot.show()
+    a = raw_input()
+    pyplot.clf()
+    gen(C=C)
+    pyplot.show()
