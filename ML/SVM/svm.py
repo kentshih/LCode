@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+#-*- coding: utf-8 -*-
 import sys
 import os
 import math
@@ -10,43 +10,79 @@ from sklearn import svm
 
 from perc import sign, perc
 
-dim = 2
-N = 500
+dim = 260
+N = 5000
 
-def gen(C=1e10):
-    a, b, c = (random()-0.5) *10, (random()-0.5) *10, (random()+1) *5  # 0 for no bias
-    norm = math.sqrt(a*a+b*b)
-
-    w = np.array([a/norm, b/norm, c/norm])
-
-    prec=1e-2
-    data = [[], []]
+def preprosess(file):
+    f = open(file,'r')
+    x = np.zeros(260)
+    dictdata = {}
+    count = 0
+    data = [[],[]]
     datas = []
     X = []
     Y = []
-    while not all(len(d)>=20 for d in data):
-        xy = np.array([(random()-0.5) * 20, (random()-0.5) * 20, 1])
-        c = w.dot(xy)
-        if c >= 1:
-            i = 0 
-        elif c <= -1:
-            i = 1 
-        else:
-            i = 2
-        if i < 2 and len(data[i]) <= 20:
-    ##         if random()<0.99:
-    ##             i = 1-i; c = -c
-            data[i].append((xy[0], xy[1]))
-            datas.append(((xy[0], xy[1]), sign(c)))
-            X.append(xy[:-1])
-            Y.append(sign(c))
 
-    markers = ["ro", "bs"]
-    for i, d in enumerate(data):
-        ps = np.array(d).transpose()
-        pyplot.plot(ps[0], ps[1], markers[i], ms=5)
+    for line in f:  ## set data
+        frame = line.split(", ")
+        x = np.zeros(260)
+        if frame[9] == "<=50K\n":
+            sign = -1
+        if frame[9] == ">50K\n":
+            sign = 1
+        frame[0] = "Y" +frame[0]
+        frame[7] = "Hr"+frame[7]
+        x.fill(0)
 
-    x = np.linspace(-10, 10, 21)
+        for element in frame[:9]:
+            if element not in dictdata:
+                dictdata[element] = count
+                count += 1
+            x[dictdata[element]] = 1
+            X.append(x)
+            Y.append(sign)
+            datas.append((x,sign))
+    return X,Y,datas
+
+
+
+
+def gen(C=1e10):
+    # a, b, c = (random()-0.5) *10, (random()-0.5) *10, (random()+1) *5  # 0 for no bias
+    # norm = math.sqrt(a*a+b*b)
+
+    # w = np.array([a/norm, b/norm, c/norm])
+
+    # prec=1e-2
+    # data = [[], []]
+    # datas = []
+    # X = []
+    # Y = []
+    # while not all(len(d)>=20 for d in data):
+    #     xy = np.array( [(random()-0.5) * 20, (random()-0.5) * 20, 1] )
+    #     c = w.dot(xy)
+    #     if c >= 1:
+    #         i = 0 
+    #     elif c <= -1:
+    #         i = 1 
+    #     else:
+    #         i = 2
+    #     if i < 2 and len(data[i]) <= 20:
+    # ##         if random()<0.99:
+    # ##             i = 1-i; c = -c
+    #         data[i].append((xy[0], xy[1]))
+    #         datas.append(((xy[0], xy[1]), sign(c)))
+    #         X.append(xy[:-1])
+    #         Y.append(sign(c))
+
+    # markers = ["ro", "bs"]
+    # for i, d in enumerate(data):
+    #     ps = np.array(d).transpose()
+    #     pyplot.plot(ps[0], ps[1], markers[i], ms=5)
+
+    # x = np.linspace(-10, 10, 21)
+    file = 'income.train.txt.5k'
+    X,Y,datas = preprosess(file)
 
 
 #     pyplot.plot(x, (w[0]*x + w[2])/-w[1])
@@ -107,6 +143,8 @@ if __name__ == "__main__":
     #     except:
     #         break
     #     pyplot.clf()
+    file = 'income.train.txt.5k'
+    dataset = preprosess(file)
 
     C = float(sys.argv[1]) if len(sys.argv) > 1 else 0.01
     pyplot.ion()

@@ -7,19 +7,23 @@ sign = lambda x: -1 if x < -prec else 1 if x > prec else 0
 
 def perc(data, MIRA=False, aggressive=False, margin=0.5):
 
-    weight = np.array([0.,0.,0.]) # must be float!
-    avgw = np.array([0.,0.,0.])
+    # weight = np.array([0.,0.,0.]) # must be float!
+    weight = np.zeros(260)
+    # avgw = np.array([0.,0.,0.])
+    avgw = np.zeros(260)
 
     supp_vec = set()
     for i in range(10000):
         best_margin = 100000
         error = 0
-        tavgw = np.array([0.,0.,0.])
-        for j, ((x,y), label) in enumerate(data):
-            point = np.array([x,y,1.])
-            s = weight.dot(point)
-            result = sign(s)
-            if result != label or aggressive and math.fabs(s)<margin-prec:
+        # tavgw = np.array([0.,0.,0.])
+        tavgw = np.zeros(260)
+        for j, (a, label) in enumerate(data):
+
+            point = a  ## point = (x,y,1)
+            s = weight.dot(point)  ## s = w dot point
+            result = sign(s)  ## result = +-1 
+            if result != label or aggressive and math.fabs(s)<margin-prec: ## not same sign or aggr, and w dot point < margin - prec
                 if MIRA:
                     ratio = (label-s) / point.dot(point)
                 else:
