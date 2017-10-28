@@ -14,12 +14,12 @@ def perc(data, MIRA=False, aggressive=False, margin=0.5):
 
     supp_vec = set()
     for i in range(10000):
-        best_margin = 100000
+        best_margin = 1000
         error = 0
         # tavgw = np.array([0.,0.,0.])
         tavgw = np.zeros(260)
         for j, (a, label) in enumerate(data):
-
+            
             point = a  ## point = (x,y,1)
             s = weight.dot(point)  ## s = w dot point
             result = sign(s)  ## result = +-1 
@@ -43,7 +43,7 @@ def perc(data, MIRA=False, aggressive=False, margin=0.5):
             break
         else:
             #pass
-            print i, error, weight
+            print i, error #, weight
         #avgw += weight
 
     print
