@@ -52,7 +52,7 @@ def decode(words, dictionary, model):
     best = defaultdict(lambda: defaultdict(lambda: float("-inf")))
     best[0][startsym] = 1
     back = defaultdict(dict)
-    
+
     #print " ".join("%s/%s" % wordtag for wordtag in zip(words,tags)[1:-1])
     for i, word in enumerate(words[1:], 1):
         for tag in dictionary[word]:
@@ -77,4 +77,10 @@ def test(filename, dictionary, model):
         
     return errors/tot
         
+if __name__ == "__main__":
+    trainfile, devfile = sys.argv[1:3]
+    
+    dictionary, model = mle(trainfile)
 
+    print "train_err {0:.2%}".format(test(trainfile, dictionary, model))
+    print "dev_err {0:.2%}".format(test(devfile, dictionary, model))
