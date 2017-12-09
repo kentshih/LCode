@@ -4,24 +4,24 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        longestnum = 0
-        longstr = ""
-        tempnum = 0
-        tempstr = ""
+        lnum = 0
+        lstr = ""
+        tnum = 0
+        tstr = ""
         keepgo = False
-        for x in s:
-            if longestnum == 0:
-                longstr = x
-                longestnum = 1
+        for i,x in enumerate(s,1):
+            print x, tnum
+
+            tnum += 1
+            tstr += x
+            
+            if x in lstr:
                 continue
-            if longestnum > 0:
-                if longstr[-1] == x:
-                    keepgo = True
-                    continue
-                if keepgo == True:
-                    longstr += x
-                    longestnum += 1
-                    keepgo = False
+            if lnum < tnum:
+                lnum = tnum
+                lstr = tnum
+
             
-        return longestnu
             
+
+        return lnum
