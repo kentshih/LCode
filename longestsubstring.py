@@ -4,24 +4,22 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        lnum = 0
-        lstr = ""
-        tnum = 0
-        tstr = ""
-        keepgo = False
-        for i,x in enumerate(s,1):
-            print x, tnum
-
-            tnum += 1
-            tstr += x
+        Lstr = ""
+        Tstr = ""
+        pos = 0
+        for i,c in enumerate(s,1):
+            Tstr = c
+            pos = i-1
+            for j in xrange(i,len(s)):
+                if s[j] not in Tstr:
+                    if j == pos+1:
+                        Tstr += s[j]
+                        pos += 1
+                else:
+                    break
+            print c, i, Tstr
             
-            if x in lstr:
-                continue
-            if lnum < tnum:
-                lnum = tnum
-                lstr = tnum
-
-            
-            
-
-        return lnum
+            if len(Tstr) > len(Lstr):
+                Lstr = Tstr
+        
+        return len(Lstr)

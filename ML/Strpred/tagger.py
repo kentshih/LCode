@@ -40,7 +40,7 @@ def mle(filename): # Max Likelihood Estimation of HMM
         
     return dictionary, model
 
-def decode(words, dictionary, model):
+def decode(words, dictionary, model, SVM=False, gold=None):
 
     def backtrack(i, tag):
         if i == 0:
@@ -48,16 +48,20 @@ def decode(words, dictionary, model):
         return backtrack(i-1, back[i][tag]) + [tag]
 
     words = [startsym] + words + [stopsym]
+    if SVM:
+        gold = [startsym] + gold + [stopsym]
 
     best = defaultdict(lambda: defaultdict(lambda: float("-inf")))
     best[0][startsym] = 1
     back = defaultdict(dict)
-    
+
     #print " ".join("%s/%s" % wordtag for wordtag in zip(words,tags)[1:-1])
     for i, word in enumerate(words[1:], 1):
         for tag in dictionary[word]:
             for prev in best[i-1]:
-                score = best[i-1][prev] + model[prev, tag] + model[tag, word]
+                score = best[i-1][prev] + model.get((prev, tag), 0) + model.get((tag, word), 0) # avoid missing feature being added to model
+                if SVM:
+                    score += tag != gold[i]
                 if score > best[i][tag]:
                     best[i][tag] = score
                     back[i][tag] = prev
@@ -77,4 +81,10 @@ def test(filename, dictionary, model):
         
     return errors/tot
         
+if __name__ == "__main__":
+    trainfile, devfile = sys.argv[1:3]
+    
+    dictionary, model = mle(trainfile)
 
+    print "train_err {0:.2%}".format(test(trainfile, dictionary, model))
+    print "dev_err {0:.2%}".format(test(devfile, dictionary, model))
