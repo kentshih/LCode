@@ -7,11 +7,11 @@ class Solution(object):
         Lstr = ""
         Tstr = ""
         pos = 0
-        # for i,c in enumerate(s,1):
-        Tstr = s[0]
-        pos = 0
-        i = 1
-        while i < len(s):
+        for i,c in enumerate(s,1):
+            Tstr = s[i]
+            pos = i-1
+            # i = 1
+        # while i < len(s):
             for j in xrange(i,len(s)):
                 if s[j] not in Tstr:
                     if j == pos+1:
@@ -20,7 +20,7 @@ class Solution(object):
                 else:
                     if len(Tstr) > len(Lstr):
                         Lstr = Tstr
-                    i = pos
+                    # i = pos
                     Tstr = s[i]
                     break
 
