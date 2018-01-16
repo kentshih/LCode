@@ -24,4 +24,5 @@ class Solution(object):
                     Tstr = s[i]
                     break
 
+
         return len(Lstr)
