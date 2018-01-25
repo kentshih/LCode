@@ -7,6 +7,7 @@ class Solution(object):
         Lstr = ""
         Tstr = ""
         pos = 0
+        dict = {}
         for i,c in enumerate(s,1):
             Tstr = s[i]
             pos = i-1
