@@ -4,26 +4,14 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        Lstr = ""
-        Tstr = ""
-        pos = 0
-        dict = {}
-        for i,c in enumerate(s,1):
-            Tstr = s[i]
-            pos = i-1
-            # i = 1
-        # while i < len(s):
-            for j in xrange(i,len(s)):
-                if s[j] not in Tstr:
-                    if j == pos+1:
-                        Tstr += s[j]
-                        pos += 1
-                else:
-                    if len(Tstr) > len(Lstr):
-                        Lstr = Tstr
-                    # i = pos
-                    Tstr = s[i]
-                    break
-
-
-        return len(Lstr)
+        start = 0
+        Lstr = 0
+        usedchar = {}
+        for i,c in enumerate(s):
+            if c in usedchar and start <= usedchar[c]:
+                start = usedchar[c] + 1
+            else:
+                Lstr = max(Lstr, i - start + 1)
+            usedchar[c] = i
+                
+        return Lstr
