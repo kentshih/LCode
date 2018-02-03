@@ -10,9 +10,14 @@ class Solution(object):
         """
         n = len(nums1)
         m = len(nums2)
+        nums = nums1 + nums2
         target = (n+m) / 2.0
         
         if n == 0:
             return nums2[target-1]
         if m == 0:
-        start = getm(target,nums1)
+        start = min(nums1[0],nums2[0])
+        end = max(nums1[-1],nums2[-1])
+        if start in nums1:
+            
+        
