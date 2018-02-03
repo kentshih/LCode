@@ -15,4 +15,4 @@ class Solution(object):
         if n == 0:
             return nums2[target-1]
         if m == 0:
-        start = 
+        start = getm(target,nums1)
