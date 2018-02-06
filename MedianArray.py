@@ -11,8 +11,13 @@ class Solution(object):
         n = len(nums1)
         m = len(nums2)
         nums = nums1 + nums2
-        target = (n+m) / 2.0
+        pivot = nums[n]
+        i = 0
+        j = 0
         
+        target = (n+m) / 2
+        while count != target:
+            
         if n == 0:
             return nums2[target-1]
         if m == 0:
