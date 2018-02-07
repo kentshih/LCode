@@ -10,19 +10,29 @@ class Solution(object):
         """
         n = len(nums1)
         m = len(nums2)
-        nums = nums1 + nums2
-        pivot = nums[n]
-        i = 0
-        j = 0
+        nums = []
         
-        target = (n+m) / 2
-        while count != target:
+        target = (n+m) / 2.0
+        count = 0
+        while count <= target:
+            if not nums1 and nums2:
+                nums.append(nums2[0])
+                nums2 = nums2[1:]
+            elif not nums2 and nums1:
+                nums.append(nums1[0])
+                nums1 = nums1[1:]
+            elif nums1[0] <= nums2[0]:
+                nums.append(nums1[0])
+                nums1 = nums1[1:]
+            else:
+                nums.append(nums2[0])
+                nums2 = nums2[1:]
+            count += 1
+        #     print nums
+        # print target
+        # print count
+        if target * 10 % 10 > 0:
+            return nums[count-1]
+        else:
+            return (nums[count-2] + nums[count-1]) / 2.0
             
-        if n == 0:
-            return nums2[target-1]
-        if m == 0:
-        start = min(nums1[0],nums2[0])
-        end = max(nums1[-1],nums2[-1])
-        if start in nums1:
-            
-        
