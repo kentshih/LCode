@@ -5,6 +5,7 @@ class Solution(object):
         :rtype: str
         """
         ans = ""
+        stack = ""
         n = len(s)
         i = 0
         j = n - 1
