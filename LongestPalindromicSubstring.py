@@ -24,4 +24,4 @@ class Solution(object):
                     if len(ans) < end - start:
                         ans = s[start:end]
             i += 1
-        return ans
+        return stack
