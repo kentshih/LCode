@@ -25,3 +25,7 @@ class Solution(object):
                         ans = s[start:end]
             i += 1
         return stack
+    def helper(self, s, l, r):
+    while l >= 0 and r < len(s) and s[l] == s[r]:
+        l -= 1; r += 1
+    return s[l+1:r]
