@@ -6,6 +6,7 @@ class Solution(object):
         """
         ans = ""
         stack = ""
+        maxlen = 0
         n = len(s)
         i = 0
         j = n - 1
@@ -24,7 +25,7 @@ class Solution(object):
                     if len(ans) < end - start:
                         ans = s[start:end]
             i += 1
-        return stack
+        return maxlen
     def helper(self, s, l, r):
         while l >= 0 and r < len(s) and s[l] == s[r]:
             l -= 1; r += 1
