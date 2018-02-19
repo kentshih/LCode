@@ -4,33 +4,18 @@ class Solution(object):
         :type s: str
         :rtype: str
         """
-        ans = ""
-        stack = ""
+        start = 0
         maxlen = 0
         n = len(s)
-        i = 0
-        j = n - 1
-        for i in xrange(len(s)):
-            
-        while i < j:
-            if s[i] == s[j]:
-                start = i
-                end = j
-                while i != j:
-                    if s[i] == s[j]:
-                        i += 1
-                        j -= 1
-                        continue
-                    else:
-                        break
-                if s[i] == s[j]:
-                    if len(ans) < end - start:
-                        ans = s[start:end]
-            i += 1
-        return maxlen
+        if n == 0:
+            return 0
+        for i in xrange(n):
+            if i - maxlen >= 1 and s[ i-maxlen-1 : i+1 ] == s[i-maxlen-1 : i+1][::-1]:
+                start = i-maxlen-1
+                maxlen += 2
+                continue
+            if i - maxlen >= 0 and s[ i-maxlen : i+1 ] == s[i-maxlen : i+1][::-1]:
+                start = i-maxlen
+                maxlen += 1
 
-    def helper(self, s, l, r):
-
-        while l >= 0 and r < len(s) and s[l] == s[r]:
-            l -= 1; r += 1
-        return s[l+1:r]
+        return s[start:start+maxlen]
