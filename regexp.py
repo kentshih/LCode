@@ -6,6 +6,7 @@ class Solution(object):
         :rtype: bool
         """
         count = 0
+        table = []
         while count < len(s):
             if s[count] == p[count]:
                 count += 1
