@@ -1,2 +1,0 @@
-def bsts(num):
-	pass

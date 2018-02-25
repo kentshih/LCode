@@ -23,4 +23,3 @@ class Solution(object):
             if ans > Mans:
                 Mans = ans
         return Mans
-            
