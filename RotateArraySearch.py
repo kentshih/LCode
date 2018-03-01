@@ -5,11 +5,16 @@ class Solution(object):
         :type target: int
         :rtype: int
         """
-        ans = 0
         n = len(nums)
-        if n == 0:
-            return -1
-        cur = n / 2
-        for i in xrange(n):
-            if nums[i] == target:
-                return i
+
+        l = 0
+        r = n
+
+        while l < r:
+            pivot = (l + r) / 2
+            if (nums[0] > target) ^ (nums[0] > nums[pivot]) ^ (target > nums[pivot]):
+                l = pivot + 1
+            else:
+                r = pivot
+            
+        return l if target in nums[l:l+1] else -1
