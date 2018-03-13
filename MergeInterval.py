@@ -12,22 +12,10 @@ class Solution(object):
         """
         ans = []
         count = 1
-        for x in intervals:
-            s = x.start
-            t = x.end
-            n = len(ans)
-
-            find = 0
-            for y in ans:
-                if (y.start <= x.start and x.start <= y.end) \
-                or (x.end >= y.start and x.end <= y.end) \
-                or (x.start <= y.start and x.end >= y.end):
-                    y.start = min(x.start, y.start)
-                    y.end   = max(x.end, y.end)
-                    find = 1
-                    break
-                    
-            if find == 0:
-                ans.append(x)
-                continue
+        
+        for i in sorted(intervals, key = lambda i: i.start):
+            if ans and i.start <= ans[-1].end:
+                ans[-1].end = max(ans[-1].end, i.end)
+            else:
+                ans += i,
         return ans
