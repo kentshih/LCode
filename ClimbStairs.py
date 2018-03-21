@@ -8,5 +8,6 @@ class Solution(object):
         dp[0] = 1
         for i in xrange(1,n):
             dp[i] = dp[i-1] + 1
+        
             
         return dp[-1]
