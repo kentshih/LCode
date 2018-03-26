@@ -7,3 +7,5 @@ class Solution(object):
         """
         n = len(word1)
         m = len(word2)
+        
+        dp = []
