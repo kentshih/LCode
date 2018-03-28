@@ -9,5 +9,6 @@ class Solution(object):
         m = len(word2)
         
         dp = [x for i in xrange(n)]
-        
-        
+        dp2 = []
+        for i in range(m):
+            dp2.append(dp)
