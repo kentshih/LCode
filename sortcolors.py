@@ -5,7 +5,6 @@ class Solution(object):
         :rtype: void Do not return anything, modify nums in-place instead.
         """
         j = len(nums) - 1
-        
         i = 0
         for x in xrange(j):
             if nums[x] == 1:
