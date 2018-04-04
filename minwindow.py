@@ -5,4 +5,7 @@ class Solution(object):
         :type t: str
         :rtype: str
         """
+        n = len(s)
+        m = len(t)
+        
         
