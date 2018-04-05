@@ -5,7 +5,10 @@ class Solution(object):
         :type t: str
         :rtype: str
         """
-        n = len(s)
-        m = len(t)
+        m = len(s)
+        n = len(t)
+        if m < n:
+            return ''
+        lt = {}
         
         
