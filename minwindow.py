@@ -11,4 +11,8 @@ class Solution(object):
             return ''
         lt = {}
         
-        
+        for i in t:
+            if i not in lt:
+                lt[i] = 1
+            else:
+                lt[i] += 1
