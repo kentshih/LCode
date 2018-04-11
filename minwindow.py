@@ -15,4 +15,4 @@ class Solution(object):
             if i not in lt:
                 lt[i] = 1
             else:
-                lt[i] += 1
+                lt[i] += 1.
