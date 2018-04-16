@@ -16,4 +16,4 @@ class Solution(object):
                 lt[i] = 1
             else:
                 lt[i] += 1
-        while 
+        while i
