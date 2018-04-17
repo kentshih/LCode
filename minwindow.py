@@ -16,4 +16,10 @@ class Solution(object):
                 lt[i] = 1
             else:
                 lt[i] += 1
-        while i
+        missing = n
+        i = I = J = 0
+        for j, c in enumerate(s, 1):    
+            if c in lt and lt[c] > 0:
+                missing -= 1
+            if c in lt:
+                lt[c] -= 1
