@@ -5,5 +5,5 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         n = len(nums)
-        for
+        for i
         
