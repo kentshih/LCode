@@ -6,5 +6,5 @@ class Solution(object):
         """
         n = len(nums)
         nums.sort()
-        for i
+        for i in
         
