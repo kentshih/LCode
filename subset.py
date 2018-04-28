@@ -8,5 +8,5 @@ class Solution(object):
         nums.sort()
         result = []
         for i in nums:
-            result = 
+            result = l
         
