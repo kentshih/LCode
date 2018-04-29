@@ -6,7 +6,8 @@ class Solution(object):
         """
         n = len(nums)
         nums.sort()
-        result = []
+        result = [[]]
         for i in nums:
-            result = l
+            result += [subset + [i] for subset in result]
+        return result
         
