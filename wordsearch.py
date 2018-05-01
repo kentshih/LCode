@@ -5,4 +5,4 @@ class Solution(object):
         :type word: str
         :rtype: bool
         """
-        
+        n = len(word)
