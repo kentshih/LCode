@@ -6,3 +6,4 @@ class Solution(object):
         :rtype: bool
         """
         n = len(word)
+        for
