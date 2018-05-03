@@ -6,4 +6,4 @@ class Solution(object):
         :rtype: bool
         """
         n = len(word)
-        for
+        for i in board:
