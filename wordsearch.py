@@ -5,5 +5,5 @@ class Solution(object):
         :type word: str
         :rtype: bool
         """
-        n = len(word)
+        m, n  = len(board), len(board[0])
         for i in board:
