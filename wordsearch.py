@@ -11,4 +11,3 @@ class Solution(object):
         return True
 
         for i in board:
-            
