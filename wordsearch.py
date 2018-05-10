@@ -10,4 +10,4 @@ class Solution(object):
             return False
         return True
 
-        for i in board:
+        
