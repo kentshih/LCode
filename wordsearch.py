@@ -9,5 +9,3 @@ class Solution(object):
         if i < 0 or j < 0 or i >= m or j >= n:
             return False
         return True
-
-        
