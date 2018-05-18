@@ -31,4 +31,19 @@ class Solution(object):
         visited.remove((i, j))
 
         return False
+    def exist(self, board, word):
+        """
+        :type board: List[List[str]]
+        :type word: str
+        :rtype: bool
+        """
+        if not board or not board[0]:
+            return False
 
+        m, n  = len(board), len(board[0])
+        for i in xrange(m):
+            for j in xrange(n):
+                visited = set()
+                if self.dfs(i, j, 0, visited, board, word):
+                    return True
+        return False
