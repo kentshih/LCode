@@ -4,4 +4,4 @@ class Solution(object):
         :type heights: List[int]
         :rtype: int
         """
-        
+        n = len(heights)
