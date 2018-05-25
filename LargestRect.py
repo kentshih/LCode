@@ -5,4 +5,4 @@ class Solution(object):
         :rtype: int
         """
         n = len(heights)
-
+        stack = []
