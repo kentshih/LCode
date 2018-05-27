@@ -6,3 +6,4 @@ class Solution(object):
         """
         n = len(heights)
         stack = []
+        temp = []
