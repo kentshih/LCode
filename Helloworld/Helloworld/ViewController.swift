@@ -19,5 +19,11 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    let fullScreenSize = UIScreen.main.bounds.size
+    
+    var myButton = UIButton(type: .contactAdd)
+    myButton.center = CGPoint(
+    x: fullScreenSize.width * 0.4,
+    y: fullScreenSize.height * 0.2)
+    self.view.addSubview(myButton)
 }
