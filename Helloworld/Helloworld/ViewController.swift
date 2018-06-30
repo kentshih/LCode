@@ -26,4 +26,5 @@ class ViewController: UIViewController {
     x: fullScreenSize.width * 0.4,
     y: fullScreenSize.height * 0.2)
     self.view.addSubview(myButton)
+    
 }
