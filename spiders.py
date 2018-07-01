@@ -17,5 +17,6 @@ while sum < 10000 :
          urls = soup.find_all("href")  #解析网页所有的链接
          for url in urls:
               seds.append(url)
+              
     else:
          break
