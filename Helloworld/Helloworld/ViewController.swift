@@ -19,12 +19,24 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    let fullScreenSize = UIScreen.main.bounds.size
     
-    var myButton = UIButton(type: .contactAdd)
-    myButton.center = CGPoint(
-    x: fullScreenSize.width * 0.4,
-    y: fullScreenSize.height * 0.2)
-    self.view.addSubview(myButton)
+    
+    }
+    
+    @IBAction func showMessage(sender: UIButton) {
+        var EmojiDict = ["Smile": "（≧∇≦）",
+                         "hi"   : "( ´ ▽ ` )ﾉ",
+                         "Cry"  : "ಥ_ಥ"]
+        let selectButton = sender
+        if let wordToLookup = selectedButton.tittle.titleLabel?.text {
+            if wordToLookup == "Smile" {
+                
+            }
+        let alertController = UIAlertController(title: "welcome", message: "Hello!", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK!", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
+        
+    }
+    
     
 }
