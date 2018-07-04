@@ -21,7 +21,9 @@ def selectsort(seq):
 def insertsort(seq):
     n = len(seq)
     for i in xrange(n):
+        print seq
         
+
 def test():
     seq = list(range(10))
     random.shuffle(seq)
