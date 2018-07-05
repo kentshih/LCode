@@ -20,15 +20,28 @@ def selectsort(seq):
 
 def insertsort(seq):
     n = len(seq)
+    slist = []
     for i in xrange(n):
-        print seq
-        
+        print slist
+        if len(slist) == 0:
+            slist += [seq[i]]
+            continue
+        for j in xrange(len(slist)):
+            if slist[j] > seq[i]:
+                slist = slist[:j] + [seq[i]] + slist[j:]
+                break
+            if j == len(slist) - 1:
+                slist = slist + [seq[i]]
+    return slist
+                
+            
 
 def test():
     seq = list(range(10))
     random.shuffle(seq)
     # bubblesort(seq)
-    selectsort(seq)
+    # selectsort(seq)
+    seq = insertsort(seq)
     assert seq == sorted(seq)
 
 if __name__ == '__main__':
