@@ -33,6 +33,11 @@ def insertsort(seq):
             if j == len(slist) - 1:
                 slist = slist + [seq[i]]
     return slist
+
+def mergesort(seq):
+    n = len(seq)
+    if n == 1:
+        
                 
             
 
