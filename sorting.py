@@ -37,7 +37,28 @@ def insertsort(seq):
 def mergesort(seq):
     n = len(seq)
     if n == 1:
-        
+        return [seq[0]]
+    left = mergesort(seq[:n/2])
+    right = mergesort(seq[n/2:])
+    # print left, right
+    def mergedlist(lseq, rseq):
+        nlist = []
+        p1 = p2 = 0
+        while p1 < len(lseq) and p2 < len(rseq):
+            if lseq[p1] < rseq[p2]:
+                nlist += [lseq[p1]]
+                p1 += 1
+            else:
+                nlist += [rseq[p2]]
+                p2 += 1
+        if p1 < len(lseq):
+            nlist += lseq[p1:]
+        if p2 < len(rseq):
+            nlist += rseq[p2:]
+        return nlist
+    nlist = mergedlist(left, right)
+    print nlist
+    return nlist
                 
             
 
@@ -46,7 +67,8 @@ def test():
     random.shuffle(seq)
     # bubblesort(seq)
     # selectsort(seq)
-    seq = insertsort(seq)
+    # seq = insertsort(seq)
+    seq = mergesort(seq)
     assert seq == sorted(seq)
 
 if __name__ == '__main__':
