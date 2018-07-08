@@ -60,7 +60,25 @@ def mergesort(seq):
     print nlist
     return nlist
                 
-            
+def quicksort(seq):
+    n = len(seq)
+    if n == 0:
+        return []
+    if n == 1:
+        return [seq[0]]
+    seq[0], seq[n/2] = seq[n/2], seq[0]
+    left = []
+    right = []
+    for x in seq[1:]:
+        if x < seq[0]:
+            left += [x]
+        else:
+            right += [x]
+    ans = quicksort(left) + [seq[0]] + quicksort(right)
+    print ans
+    return ans
+
+        
 
 def test():
     seq = list(range(10))
@@ -68,7 +86,8 @@ def test():
     # bubblesort(seq)
     # selectsort(seq)
     # seq = insertsort(seq)
-    seq = mergesort(seq)
+    # seq = mergesort(seq)
+    seq = quicksort(seq)
     assert seq == sorted(seq)
 
 if __name__ == '__main__':
