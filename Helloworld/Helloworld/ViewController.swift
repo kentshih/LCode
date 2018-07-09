@@ -28,10 +28,11 @@ class ViewController: UIViewController {
                          "hi"   : "( ´ ▽ ` )ﾉ",
                          "Cry"  : "ಥ_ಥ"]
         let selectButton = sender
-        if let wordToLookup = selectedButton.tittle.titleLabel?.text {
+        if let wordToLookup = selectButton.tittle.titleLabel?.text {
             if wordToLookup == "Smile" {
                 
             }
+            
         let alertController = UIAlertController(title: "welcome", message: "Hello!", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK!", style: .default, handler: nil))
         present(alertController, animated: true, completion: nil)
