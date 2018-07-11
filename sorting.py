@@ -78,6 +78,9 @@ def quicksort(seq):
     print ans
     return ans
 
+def sort(args):
+    
+
 def test():
     seq = list(range(10))
     random.shuffle(seq)
@@ -86,6 +89,7 @@ def test():
     # seq = insertsort(seq)
     # seq = mergesort(seq)
     seq = quicksort(seq)
+
     assert seq == sorted(seq)
 
 if __name__ == '__main__':
