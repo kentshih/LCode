@@ -78,10 +78,6 @@ def quicksort(seq):
     print ans
     return ans
 
-def sort(args):
-    
-    
-
 def test():
     seq = list(range(10))
     random.shuffle(seq)
