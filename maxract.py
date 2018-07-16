@@ -4,14 +4,21 @@ class Solution(object):
         :type matrix: List[List[str]]
         :rtype: int
         """
-        n = len(matrix)
-        m = 0
-        if matrix[0]:
-            m = len(matrix[0])
-        area = 0
-        dp = []
+        
+        if not matrix or not matrix[0]:
+            return 0
+        n = len(matrix[0])
+        height = [0] * (n + 1)
+        
+        ans = 0
         for row in matrix:
-            for x in row:
+            for i in xrange(n):
+                height[i] = height[i] + 1 if row[i] == 1 else 0
+            stack = [-1]
+            for i in xrange(n+1):
+                while height[i] < height[stack[-1]]:
+                    h = height[i]
+                
                 if x == 1:
                     area += 1
                 
