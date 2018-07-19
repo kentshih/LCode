@@ -5,3 +5,5 @@ class Solution(object):
         :type numRows: int
         :rtype: str
         """
+        n = len(s)
+        numRows
