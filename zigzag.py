@@ -6,4 +6,6 @@ class Solution(object):
         :rtype: str
         """
         n = len(s)
-        numRows
+        zig_zag =''
+        if numRows < 2 or n < numRows: 
+            return s
