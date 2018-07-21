@@ -9,3 +9,6 @@ class Solution(object):
         zig_zag =''
         if numRows < 2 or n < numRows: 
             return s
+        else:
+            for i in range(numRows):
+                k=0 # initial column
