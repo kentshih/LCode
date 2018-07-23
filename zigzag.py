@@ -5,16 +5,12 @@ class Solution(object):
         :type numRows: int
         :rtype: str
         """
-        n = len(s)
-        zig_zag =''
-        if numRows < 2 or n < numRows: 
-            return s
-        else:
-            for i in xrange(numRows):
-                k = 0
-                while k < n:
-                    if k % (2*numRows - 2) == i:
-                        zig_zag += s[k]
-                        k += k
-                        continue
-                    
+        if numRows == 1: return s
+        rows = [''] * numRows
+        num = (numRows-1)*2
+        for i, item in enumerate(s):
+            if i % num >= numRows:
+                rows[(num - i % num) % numRows] += item
+            else:
+                rows[i % num] += item
+        return ''.join(rows)
