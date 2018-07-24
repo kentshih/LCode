@@ -5,4 +5,11 @@ class Solution(object):
         :type val: int
         :rtype: int
         """
-        
+        ans = []
+        j = 0
+        for i,x in enumerate(nums):
+            if x == val:
+                continue
+            nums[j] = nums[i]
+            j += 1
+        return j
