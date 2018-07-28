@@ -7,14 +7,15 @@ class Solution(object):
         plus = True
         ans = []
         for num, i in enumerate(digits[::-1]):
-            if i == 9 and plus == True:
-                ans = [0] + ans
-                if num == len(digits) - 1:
-                    ans = [1] + ans
-                continue
             if plus == True:
-                ans = [i+1] + ans
-                plus = False
+                if i == 9:
+                    ans = [0] + ans
+                    if num == len(digits) - 1:
+                        ans = [1] + ans
+                        plus = False
+                else:
+                    ans = [i+1] + ans
+                    plus = False
                 continue
             else:
                 ans = [i] + ans
