@@ -14,3 +14,5 @@ class Solution(object):
                 break
             if nums2[j] < nums1[i]:
                 nums1 = nums2[j] + nums1
+            
+            if
