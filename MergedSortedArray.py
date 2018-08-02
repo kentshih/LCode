@@ -8,11 +8,11 @@ class Solution(object):
         :rtype: void Do not return anything, modify nums1 in-place instead.
         """
         i = 0
+        end = nums1[m-1]
         for j in range(len(nums2)):
-            if i == m - 1:
+            if nums1[i] == end: # concat remaining 
                 nums1 += nums2[j:]
                 break
-            if nums2[j] < nums1[i]:
-                nums1 = nums2[j] + nums1
-            
-            if
+            if nums2[j] < nums1[i]: 
+                nums1 = nums1[i:] + [nums2[j]] + nums1[:i]
+                i += 1
