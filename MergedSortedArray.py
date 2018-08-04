@@ -13,20 +13,22 @@ class Solution(object):
             j = n-1
             end = nums1[m-1]
             for k in range(m+n-1,-1,-1):
-                if nums1[i] > nums2[j]: # put nums1  
-                    nums1[k], nums1[i] = nums1[i], nums1[k]
-                    i -= 1
-                elif nums2[j] >= nums1[i]: # put nums2 
-                    print nums2[j] 
-                    nums1[k] = nums2[j] 
-                    j -= 1
+                if i >= 0 and j >= 0:
+                    if nums1[i] > nums2[j]: # put nums1  
+                        nums1[k], nums1[i] = nums1[i], nums1[k]
+                        i -= 1
+                    elif nums2[j] >= nums1[i]: # put nums2 
+                        print nums2[j] 
+                        nums1[k] = nums2[j] 
+                        j -= 1
                 print nums1
-                if j == -1:
+                elif j == -1:
                     print "j end"
                     break
-                if i == -1:
+                elif i == -1:
                     print i,j,k
                     nums1 = nums2[:j+1] + nums1[k:]
                     print "i end"
                     break
+                    
                 
