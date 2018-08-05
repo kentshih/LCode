@@ -21,14 +21,11 @@ class Solution(object):
                         print nums2[j] 
                         nums1[k] = nums2[j] 
                         j -= 1
-                print nums1
-                elif j == -1:
-                    print "j end"
-                    break
-                elif i == -1:
-                    print i,j,k
-                    nums1 = nums2[:j+1] + nums1[k:]
-                    print "i end"
-                    break
+                elif j >= 0:
+                    nums1[k] = nums2[j]
+                    j -= 1
+                elif i >= 0:
+                    nums1[k] = nums1[i]
+                    i -= 1
                     
                 
