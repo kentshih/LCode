@@ -14,9 +14,15 @@ class Solution(object):
         start = 0
         end = n - 1
         while start < end - 1:
-            if nums[start] == nums[end]:
-                end -= 1
+            if nums[start] < nums[end]:
+                return nums[start]
+            
+            mid = (start + end) / 2
             if nums[mid] > nums[start]:
-                end = mid
-            elif nums[mid] < nums[start]:
                 start = mid
+            elif nums[mid] < nums[start]:
+                end = mid
+            else:
+                start += 1
+            
+        return min(nums[start],nums[end])
