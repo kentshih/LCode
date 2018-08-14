@@ -26,4 +26,4 @@ class Solution(object):
                 start += 1
             
         return min(nums[start],nums[end])
-        \
+        
