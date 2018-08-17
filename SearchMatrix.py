@@ -9,6 +9,11 @@ class Solution(object):
         
         if n > 0:
             m = len(matrix[0])
-        cur = matrix[0]
+        x = m - 1
+        y = 0
         
-        while target != cur
+        while target != matrix[y][x]:
+            if y < n:
+                
+                    
+            
