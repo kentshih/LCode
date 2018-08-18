@@ -14,6 +14,5 @@ class Solution(object):
         
         while target != matrix[y][x]:
             if y < n:
-                
-                    
+                y += 1
             
