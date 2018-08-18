@@ -9,10 +9,18 @@ class Solution(object):
         
         if n > 0:
             m = len(matrix[0])
+        else:
+            return False
         x = m - 1
         y = 0
         
-        while target != matrix[y][x]:
-            if y < n:
+        while x >= 0 and y < n:
+            print matrix[y][x]
+            if matrix[y][x] == target:
+                return True
+            elif matrix[y][x] > target:
+                x -= 1
+            else:
                 y += 1
+        return False
             
