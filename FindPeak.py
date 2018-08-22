@@ -5,5 +5,13 @@ class Solution(object):
         :rtype: int
         """
         n = len(nums)
-        for x in xrange(n):
+        if n == 0:
+            return -1
+        if n == 1:
+            return 0
+        end  = n - 1
+        start = 0
+        while start < end:
+            mid = ( start + end ) / 2
+            
             
