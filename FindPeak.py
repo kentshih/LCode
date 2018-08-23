@@ -13,5 +13,7 @@ class Solution(object):
         start = 0
         while start < end:
             mid = ( start + end ) / 2
-            
+            if mid != 0:
+                if nums[mid] > nums[mid-1]:
+                    
             
