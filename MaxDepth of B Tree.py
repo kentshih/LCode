@@ -11,4 +11,14 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
+        def maxD(cur):
+            if not cur:
+                return 0
+            ans = 1
+            if not cur.left and not cur.right:
+                return ans
+            left = maxD(cur.left)
+            right= maxD(cur.right)
+            return max(left,right) + ans
+        return maxD(root)
         
