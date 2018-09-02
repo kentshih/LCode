@@ -11,4 +11,13 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
-        
+        def minD(r):
+            
+            ans = 99
+            if not root:
+                return 0
+            
+            left = minD(r.left)
+            right= minD(r.right)
+            return min(left,right) + 1
+        return minD(root)
