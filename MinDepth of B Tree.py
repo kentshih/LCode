@@ -16,7 +16,6 @@ class Solution(object):
             ans = 99
             if not root:
                 return 0
-            
             left = minD(r.left)
             right= minD(r.right)
             return min(left,right) + 1
