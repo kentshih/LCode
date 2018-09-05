@@ -14,9 +14,12 @@ class Solution(object):
         def minD(r):
             
             ans = 99
-            if not root:
+            if not r:
                 return 0
-            left = minD(r.left)
-            right= minD(r.right)
+            if not (r.left and r.right):
+                return 1
+            
+            left = minD(r.left) 
+            right= minD(r.right) 
             return min(left,right) + 1
         return minD(root)
