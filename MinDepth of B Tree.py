@@ -18,7 +18,7 @@ class Solution(object):
                 return 0
             if not (r.left and r.right):
                 return 1
-            
+            elif
             left = minD(r.left) 
             right= minD(r.right) 
             return min(left,right) + 1
