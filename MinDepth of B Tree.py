@@ -16,10 +16,11 @@ class Solution(object):
             ans = 99
             if not r:
                 return 0
-            if not (r.left and r.right):
+            if not r.left and not r.right:
                 return 1
-            elif
             left = minD(r.left) 
             right= minD(r.right) 
-            return min(left,right) + 1
+            if left != 0 and right != 0:
+                return min(left,right) + 1
+        
         return minD(root)
