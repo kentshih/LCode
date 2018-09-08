@@ -22,5 +22,8 @@ class Solution(object):
             right= minD(r.right) 
             if left != 0 and right != 0:
                 return min(left,right) + 1
-        
+            elif left == 0:
+                return right + 1
+            else:
+                return left + 1
         return minD(root)
