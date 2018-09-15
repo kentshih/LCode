@@ -12,10 +12,13 @@ class Solution(object):
         :type postorder: List[int]
         :rtype: TreeNode
         """
+        if not inorder or not postorder:
+            return 0
         io = len(inorder)
         po = len(postorder)
         if po:
             root = TreeNode(postorder[-1])
+        
         while inorder:
             left =buildT()
             right = buildT()
