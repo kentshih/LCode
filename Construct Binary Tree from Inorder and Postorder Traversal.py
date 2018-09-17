@@ -15,7 +15,7 @@ class Solution(object):
         if not inorder or not postorder:
             return 0
 
-        po
+        else:
         io = len(inorder)
         po = len(postorder)
         if po:
