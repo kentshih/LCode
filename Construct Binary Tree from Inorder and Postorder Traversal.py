@@ -12,7 +12,6 @@ class Solution(object):
         :type postorder: List[int]
         :rtype: TreeNode
         """
-        def 
         if not inorder or not postorder:
             return 0
 
