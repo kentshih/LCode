@@ -24,4 +24,4 @@ class Solution(object):
         while inorder:
             left =buildT()
             right = buildT()
-    return
+        return Tree
