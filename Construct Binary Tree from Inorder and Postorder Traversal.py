@@ -21,7 +21,7 @@ class Solution(object):
         po = len(postorder)
         if po:
             root = TreeNode(postorder[-1])
-            
+            return
         while inorder:
             left =buildT()
             right = buildT()
