@@ -18,11 +18,13 @@ class Solution(object):
             root = TreeNode(postorder[-1])
         else:
             return 0
-            
+
         while inorder:
             rnum = postorder[-1]
             for i in range(inorder):
                 if postorder[i] == rnum:
                     left = postorder[:i]
                     right= postorder[i:]
+
+        return root
                     
