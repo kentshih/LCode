@@ -18,8 +18,6 @@ class Solution(object):
             root = TreeNode(postorder[-1])
         else:
             return 0
-
-
         while inorder:
             rnum = postorder[-1]
             for i in range(inorder):
