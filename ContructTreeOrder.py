@@ -15,11 +15,12 @@ class Solution(object):
         
         io = len(inorder)
         po = len(postorder)
-        if po:
-            root = TreeNode(postorder[-1])
+        if not po:
+            return Null
+            
         else:
             return 0
-            
+
         while inorder:
             rnum = postorder[-1]
             for i in range(inorder):
