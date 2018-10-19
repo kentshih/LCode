@@ -17,9 +17,6 @@ class Solution(object):
         po = len(postorder)
         if not po:
             return Null
-            
-        else:
-            return 0
 
         while inorder:
             rnum = postorder[-1]
