@@ -25,3 +25,4 @@ class Solution(object):
                     left = postorder[:i]
                     right= postorder[i:]
                     
+        
