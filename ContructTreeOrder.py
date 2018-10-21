@@ -18,6 +18,7 @@ class Solution(object):
         if not po:
             return Null
 
+
         while inorder:
             rnum = postorder[-1]
             for i in range(inorder):
