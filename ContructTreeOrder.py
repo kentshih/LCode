@@ -14,11 +14,11 @@ class Solution(object):
         """
         def buildTree():
 
-            
+
         io = len(inorder)
         po = len(postorder)
-        if not po:
-            return 0
+            if not po:
+                return 0
 
         while inorder:
             rnum = postorder[-1]
