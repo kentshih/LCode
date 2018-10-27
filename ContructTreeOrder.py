@@ -12,13 +12,12 @@ class Solution(object):
         :type postorder: List[int]
         :rtype: TreeNode
         """
-        def buildTree():
-
+        def buildTree(inorder, postorder):
+            if not po:
+                return 0
 
         io = len(inorder)
         po = len(postorder)
-            if not po:
-                return 0
 
         while inorder:
             rnum = postorder[-1]
