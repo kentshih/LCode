@@ -17,6 +17,7 @@ class Solution(object):
                 return 0
             else:
                 buildTree()
+                
 
         io = len(inorder)
         po = len(postorder)
