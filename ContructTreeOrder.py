@@ -18,6 +18,8 @@ class Solution(object):
             else:
                 buildTree()
 
+                
+
         io = len(inorder)
         po = len(postorder)
         while inorder:
