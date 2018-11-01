@@ -18,13 +18,13 @@ class Solution(object):
             else:
                 buildTree()
 
-                
-
         io = len(inorder)
         po = len(postorder)
+
         while inorder:
             rnum = postorder[-1]
             for i in range(inorder):
                 if postorder[i] == rnum:
                     left = postorder[:i]
                     right= postorder[i:]
+        return 
