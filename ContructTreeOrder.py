@@ -27,4 +27,4 @@ class Solution(object):
                 if postorder[i] == rnum:
                     left = postorder[:i]
                     right= postorder[i:]
-        return 
+        
