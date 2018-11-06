@@ -7,25 +7,14 @@
 
 class Solution(object):
     def buildTree(self, inorder, postorder):
-        """
-        :type inorder: List[int]
-        :type postorder: List[int]
-        :rtype: TreeNode
-        """
-
+        if not inorder or not postorder:
+            return None
         
-        def buildTree(inorder, postorder):
-            if not po:
-                return 0
-            else:
-                buildTree()
+        root = TreeNode(postorder.pop())
+        inorderIndex = inorder.index(root.val)
 
-        io = len(inorder)
-        po = len(postorder)
+        root.right = self.buildTree(inorder[inorderIndex+1:], postorder)
+        root.left = self.buildTree(inorder[:inorderIndex], postorder)
 
-        while inorder:
-            rnum = postorder[-1]
-            for i in range(inorder):
-                if postorder[i] == rnum:
-                    left = postorder[:i]
-                    right= postorder[i:]
+        return root
+                    
