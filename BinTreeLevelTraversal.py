@@ -11,3 +11,6 @@ class Solution(object):
         :type root: TreeNode
         :rtype: List[List[int]]
         """
+        ans = []
+        def DFS(root):
+            
