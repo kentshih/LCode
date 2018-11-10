@@ -13,5 +13,7 @@ class Solution(object):
         """
         ans = []
         def DFS(root):
-            
-            
+            if not root:
+                return []
+            else:
+                
