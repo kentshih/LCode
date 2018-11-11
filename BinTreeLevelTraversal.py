@@ -11,9 +11,16 @@ class Solution(object):
         :type root: TreeNode
         :rtype: List[List[int]]
         """
+        def GetHeight(root):
+            if not root:
+                return 0
+            left  = GetHeight(root.left)
+            right = GetHeight(root.right)
+            return max(left,right) + 1
+        
         ans = []
-        def DFS(root):
+        def DFS(root, ans):
             if not root:
                 return []
             else:
-                
+                return  
