@@ -16,11 +16,19 @@ class Solution(object):
                 return 0
             left  = GetHeight(root.left)
             right = GetHeight(root.right)
-            return max(left,right) + 1
+            return max(left,right) + 1 
+        
+        def DFS(root, ans, height):
+            if not root:
+                return ans
+            else:
+                
+                return  
         
         ans = []
-        def DFS(root, ans):
-            if not root:
-                return []
-            else:
-                return  
+        height = GetHeight(root)
+        if height == 0:
+            return ans
+        else:
+            ans = DFS(root, ans, height)
+            return ans
