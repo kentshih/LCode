@@ -22,13 +22,17 @@ class Solution(object):
             if not root:
                 return ans
             else:
-                
-                return  
+                ans[height].append(root.val)
+                DFS(root.left, ans, height+1)
+                DFS(root.right, ans, height+1)
+                return ans 
         
         ans = []
         height = GetHeight(root)
+        for x in xrange(height):
+            ans.append([])
         if height == 0:
             return ans
         else:
-            ans = DFS(root, ans, height)
+            ans = DFS(root, ans, 0)
             return ans
