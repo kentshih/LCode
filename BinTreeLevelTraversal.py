@@ -29,6 +29,7 @@ class Solution(object):
         
         ans = []
         height = GetHeight(root)
+        
         for x in xrange(height):
             ans.append([])
         if height == 0:
