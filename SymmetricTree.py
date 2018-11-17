@@ -11,4 +11,8 @@ class Solution(object):
         :type root: TreeNode
         :rtype: bool
         """
-        
+        def isSame(left, right):
+            if not (left or right):
+                return True
+                
+            
