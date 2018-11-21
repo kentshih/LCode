@@ -27,20 +27,23 @@ class Solution(object):
             else:
                 return False
 
-        def BFS(root):
+        def BFS(root,stack):
             if not root:
-                return []
+                return stack
             else:
-                stack = []
                 stack.append(root.left.val)
                 stack.append(root.right.val)
+                
+
                 while stack:
                     if stack[0] == stack[-1]:
                         stack = [1:-1]
                 if stack:
-                    return False
+                    return []
                 else:
-                    
+                    stack = BFS(root.left,stack)
+                    stack = BFS(root.right,stack)
+
                 
 
 
@@ -48,5 +51,7 @@ class Solution(object):
             return False
         else:
             # return isSame(root.left, root.right)
+            stack = []
+            BFS(root,stack)
 
             
