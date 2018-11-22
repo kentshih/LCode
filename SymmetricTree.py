@@ -34,7 +34,6 @@ class Solution(object):
                 stack.append(root.left.val)
                 stack.append(root.right.val)
                 
-
                 while stack:
                     if stack[0] == stack[-1]:
                         stack = [1:-1]
