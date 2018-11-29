@@ -26,7 +26,7 @@ class Solution(object):
                 return doleft and doright
             else:
                 return False
-                
+
         def BFS(root,stack):
             if not root:
                 return stack
@@ -42,11 +42,11 @@ class Solution(object):
                 else:
                     stack = BFS(root.left,stack)
                     stack = BFS(root.right,stack)
-
         if not root:
             return False
         else:
             # return isSame(root.left, root.right)
+            
             stack = []
             BFS(root,stack)
 
