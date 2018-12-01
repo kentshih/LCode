@@ -27,7 +27,6 @@ class Solution(object):
             else:
                 return False
 
-
         def BFS(root,stack):
             if not root:
                 return stack
