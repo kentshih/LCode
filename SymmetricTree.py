@@ -46,6 +46,7 @@ class Solution(object):
         else:
             # return isSame(root.left, root.right)
 
+
             stack = []
             BFS(root,stack)
 
