@@ -13,6 +13,13 @@ class Solution(object):
         :type root: TreeNode
         :rtype: bool
         """
+        def isSymmetric(self, root):
+            if root is None:
+                return True
+            else:
+                return self.isMirror(root.left, root.right)
+
+                
         def isSame(left,right):
             if not left and not right:
                 return True
