@@ -13,13 +13,12 @@ class Solution(object):
         :type root: TreeNode
         :rtype: bool
         """
-        def isSymmetric(self, root):
+        def start(root):
             if root is None:
                 return True
             else:
-                return self.isMirror(root.left, root.right)
-
-                
+                isSame(root.left, root.right)
+            
         def isSame(left,right):
             if not left and not right:
                 return True
@@ -28,33 +27,14 @@ class Solution(object):
                 return False
 
             elif left.val == right.val:
-                doleft = isSame(left.left, right.left)
-                doright= isSame(left.right, right.right)
+                doout = isSame(left.left, right.right)
+                doin  = isSame(left.right, right.left)
                 return doleft and doright
             else:
                 return False
-        def BFS(root,stack):
-            if not root:
-                return stack
-            else:
-                stack.append(root.left.val)
-                stack.append(root.right.val)
-                
-                while stack:
-                    if stack[0] == stack[-1]:
-                        stack = [1:-1]
-                if stack:
-                    return []
-                else:
-                    stack = BFS(root.left,stack)
-                    stack = BFS(root.right,stack)
+
         if not root:
             return False
         else:
-            # return isSame(root.left, root.right)
-
-
-            stack = []
-            BFS(root,stack)
-
+            return isSame(root.left, root.right)
             
