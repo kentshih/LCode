@@ -33,8 +33,8 @@ class Solution(object):
             else:
                 return False
 
+
         if not root:
             return False
         else:
             return isSame(root.left, root.right)
-            
