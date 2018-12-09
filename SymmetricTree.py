@@ -13,6 +13,7 @@ class Solution(object):
         :type root: TreeNode
         :rtype: bool
         """
+        
         def start(root):
             if root is None:
                 return True
@@ -32,7 +33,6 @@ class Solution(object):
                 return doleft and doright
             else:
                 return False
-
 
         if not root:
             return False
