@@ -13,12 +13,13 @@ class Solution(object):
         :type root: TreeNode
         :rtype: bool
         """
-        
+
         def start(root):
             if root is None:
                 return True
             else:
                 isSame(root.left, root.right)
+        
             
         def isSame(left,right):
             if not left and not right:
