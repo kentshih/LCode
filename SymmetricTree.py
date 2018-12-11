@@ -13,29 +13,29 @@ class Solution(object):
         :type root: TreeNode
         :rtype: bool
         """
-
-        def start(root):
-            if root is None:
-                return True
-            else:
-                isSame(root.left, root.right)
-        
             
         def isSame(left,right):
             if not left and not right:
                 return True
-            elif left != right:
-            # elif xor(left,right):
+            if not left or not right:
                 return False
+            
+            # elif left != right:
+            # elif xor(left,right):
+            #     return False
 
             elif left.val == right.val:
                 doout = isSame(left.left, right.right)
                 doin  = isSame(left.right, right.left)
-                return doleft and doright
+                return doout and doin
             else:
                 return False
 
         if not root:
-            return False
+            return True
         else:
             return isSame(root.left, root.right)
+            
+
+
+            
