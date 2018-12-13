@@ -13,3 +13,14 @@ class Solution(object):
         :rtype: bool
         """
         
+        if p is None and q is None:
+            return True
+        if p and q is None:
+            return False
+        if p is None and q:
+            return False
+        if p.val == q.val:
+            l = isSameTree(p.left, q.left)
+            r = isSameTree(p.right,q.right)
+            return l and r
+            
