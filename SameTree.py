@@ -12,15 +12,16 @@ class Solution(object):
         :type q: TreeNode
         :rtype: bool
         """
-        
-        if p is None and q is None:
-            return True
-        if p and q is None:
-            return False
-        if p is None and q:
-            return False
-        if p.val == q.val:
-            l = isSameTree(p.left, q.left)
-            r = isSameTree(p.right,q.right)
-            return l and r
+        return isSame(p, q)
+    
+def isSame(p, q):
+    if p is None or q is None:
+        return True if p == q else False
+    
+    if p.val == q.val:
+        l = isSame(p.left, q.left)
+        r = isSame(p.right,q.right)
+        return l and r
+    else:
+        return False
             
