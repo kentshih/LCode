@@ -34,5 +34,9 @@ class Solution(object):
         if not root:
             return True
         else:
+<<<<<<< HEAD
             return isSame(root.left, root.right)
             
+=======
+            return isSame(root.left, root.right)
+>>>>>>> 2b58cfaf6550cf55f93c91239b21f2d604900385
