@@ -35,4 +35,3 @@ class Solution(object):
             return True
         else:
             return isSame(root.left, root.right)
-            
